@@ -70,7 +70,11 @@ sleep 120
 
 cd project
 
-sleep 5
+sleep 2
+
+tar -xf backup5.tar.gz
+
+sleep 4
 
 ls -la
 
