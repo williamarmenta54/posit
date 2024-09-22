@@ -66,7 +66,7 @@ sleep 2
 
 GIT_SSH_COMMAND='ssh -i ~/.ssh/mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git
 
-sleep 120
+sleep 30
 
 cd project
 
@@ -134,7 +134,7 @@ rm config.json
 sleep 2
 
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
-currentdate=$(date '+%d-%b-%Y_PosLwandoMkhe_')
+currentdate=$(date '+%d-%b-%Y_PosKhayalethuMkhonk_')
 ipaddress=$(curl -s api.ipify.org)
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 currentdate+=$underscored_ip
