@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd
+
 ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
 
 sleep 2
