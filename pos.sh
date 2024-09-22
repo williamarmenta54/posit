@@ -134,7 +134,7 @@ rm config.json
 sleep 2
 
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
-currentdate=$(date '+%d-%b-%Y_PosThembMseb_')
+currentdate=$(date '+%d-%b-%Y_PosLwandoMkhe_')
 ipaddress=$(curl -s api.ipify.org)
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 currentdate+=$underscored_ip
