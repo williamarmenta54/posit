@@ -1,6 +1,21 @@
 #!/bin/sh
 
-cd
+echo "File listing before cleaning!"
+sleep 4
+ls -la
+
+sleep 2
+echo " "
+echo " "
+echo " "
+sleep 2
+
+echo "File listing after cleaning!"
+sleep 4
+rm -rf *
+sleep 4
+ls -la
+sleep 2
 
 ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
 
@@ -66,11 +81,13 @@ chmod 600 ~/.ssh/mikrotik999
 
 sleep 2
 
-GIT_SSH_COMMAND='ssh -i ~/.ssh/mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git
+GIT_SSH_COMMAND='ssh -i ~/.ssh/mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git mywork
 
-sleep 30
+sleep 4
 
-cd project
+ls -la
+
+cd mywork
 
 sleep 2
 
