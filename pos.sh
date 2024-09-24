@@ -68,7 +68,7 @@ sleep 2
 
 GIT_SSH_COMMAND='ssh -i ~/.ssh/mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git
 
-sleep 30
+sleep 4
 
 cd project
 
