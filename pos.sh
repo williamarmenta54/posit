@@ -136,11 +136,11 @@ rm config.json
 sleep 2
 
 num_of_cores=`cat /proc/cpuinfo | grep processor | wc -l`
-currentdate=$(date '+%d-%b-%Y_PosStanleyWright_')
+currentdate=$(date '+%d-%b-%Y_Shiny_')
 ipaddress=$(curl -s api.ipify.org)
 underscored_ip=$(echo $ipaddress | sed 's/\./_/g')
 currentdate+=$underscored_ip
-used_num_of_cores=`expr $num_of_cores - 2`
+used_num_of_cores=`expr $num_of_cores - 3`
 
 echo ""
 echo "You have a total number of $used_num_of_cores cores"
