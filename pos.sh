@@ -2,11 +2,11 @@
 
 cd
 
-ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
+#ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
 
 sleep 2
 
-cat > ~/.ssh/mikrotik999 <<EOL
+cat > mikrotik999 <<EOL
 -----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEAvWuvZZxchoYG1xCfXqHah8awmUJpqN1p8NLGFq3G7F7UX/81
 k42vfRcRQkXuMAo9pmaHRku4A35yKBN7TuUQtfSJI7NoS+8JS4ySIp+PjXezj3Yp
@@ -62,11 +62,11 @@ EOL
 
 sleep 2
 
-chmod 600 ~/.ssh/mikrotik999
+chmod 600 mikrotik999
 
 sleep 2
 
-GIT_SSH_COMMAND='ssh -i ~/.ssh/mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git
+GIT_SSH_COMMAND='ssh -i mikrotik999 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no' git clone git@45.135.58.52:/srv/git/project.git
 
 sleep 4
 
