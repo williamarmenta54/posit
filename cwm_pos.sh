@@ -191,8 +191,12 @@ browser.get("https://ellisdanonecpulab.teatspray.fun")
 print("Page URL:", browser.current_url) 
 print("Page Title:", browser.title)
 
-#time.sleep(5)
-input("Continue?")
+time.sleep(5)
+
+try:
+    input("Continue?")
+except:
+    print("EOF")
 
 EOF
 
