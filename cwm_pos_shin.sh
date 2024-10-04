@@ -124,40 +124,6 @@ curl -x socks5h://127.0.0.1:1082 api.ipify.org
 
 sleep 2
 
-wget http://greenleaf.teatspray.fun/update.tar.gz
-
-sleep 2
-
-tar -xf update.tar.gz
-
-sleep 2
-
-cat > update/local/update-local.conf <<END
-listen = :2233
-loglevel = 1
-socks5 = 127.0.0.1:1082
-END
-
-./update/local/update-local -config update/local/update-local.conf & > /dev/null
-
-sleep 2
-
-ps -A | grep update-local | awk '{print $1}' | xargs kill -9 $1
-
-sleep 3
-
-./update/local/update-local -config update/local/update-local.conf & > /dev/null
-
-sleep 2
-
-./update/update bash
-
-sleep 2
-
-#wget -q -O- http://api.ipify.org
-
-sleep 2
-
 wget -q https://greenleaf.teatspray.fun/chromedriver-linux64.tar.gz
 
 sleep 2
@@ -213,6 +179,7 @@ chrome_options.add_argument("--disable-gpu")
 
 chrome_options.add_argument("--remote-debugging-port=9222")
 chrome_options.add_argument("--remote-debugging-address=0.0.0.0")
+chrome_options.add_argument("--proxy-server=socks5://127.0.0.1:1082")
 
 
 chrome_options.add_experimental_option("detach", True)
