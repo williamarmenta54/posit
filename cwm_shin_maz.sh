@@ -87,6 +87,11 @@ sleep 3
 ls -la
 sleep 3
 
+cd
+sleep 2
+pwd
+sleep 2
+
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
 
